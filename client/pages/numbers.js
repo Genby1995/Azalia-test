@@ -64,7 +64,9 @@ const Numbers = () => {
 
             if (res.ok) {
                 setResults([...results, data.data])
-                setMessage("Результат получен")
+                setInput('');
+                setPrecision("");
+                setMessage("Результат получен");
             } else if (data) {
                 setMessage("Ошибка: " + data.message)
             } else {
