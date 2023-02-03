@@ -1,12 +1,12 @@
 :root{
-  --color-text: rgb(35, 35, 35);
-  --color-text-dark: rgb(15, 15, 15);
+  --color-text: rgb(220, 220, 220);
+  --color-text-dark: rgba(220, 220, 220, 0.75);
   --color-text-warn: red;
-  --color-stroke: rgba(35, 35, 35, 0.25);
-  --color-bkg: rgb(195, 195, 195);
-  --color-main: rgb(225,225,225); 
-  --color-main-light: rgb(235, 235, 235);
-  --color-main-dark: rgb(155, 155, 155);
+  --color-stroke: rgba(220, 220, 220, 0.25);
+  --color-bkg: rgb(30, 30, 30);
+  --color-main: rgb(60, 60, 60);
+  --color-main-light: rgb(125, 125, 125);
+  --color-main-dark: rgb(45, 45, 45);
   --color-char: rgb(0, 100, 200);
   --color-char-text: rgb(220, 220, 220);
   --color-char-trans: rgba(0, 100, 200, .3);
@@ -18,9 +18,6 @@
   margin: 0;
   padding: 0;
   border: 0;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
 }
 
 *,
@@ -52,8 +49,11 @@ html,
 body {
   height: 100%;
   width: 100%;
-  font-size: 100%;
   line-height: 1;
+
+  background-color: var(--color-bkg);
+  color: var(--color-text);
+  font-size: 18px;
 
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
@@ -102,31 +102,83 @@ h3,
 h4,
 h5,
 h6 {
-  font-size: inherit;
+  font-size: 28px;
   font-weight: 400;
 }
 
 /*----------------------------------------------------*/
 
 h1{
-  font-size: 25px;
-  margin: 5px;
+  padding: 5px;
+  text-align: center;
 }
 .navbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
   border-radius: 5px;
-  background: rgb(155, 155, 155);
+  border: solid 1px var(--color-stroke);
+  background: var(--color-main);
   padding: 5px;
 }
 
 .linkItem {
   padding: 5px;
-  margin: 10px;
   border-radius: 5px;
-  background: rgb(235, 235, 235);
+  background: var(--color-main-light);
   text-decoration: none;
   transition: all 0.3s;
+  color: var(--color-text);
 }
 
 .linkItem:hover {
-  box-shadow: 0 0 10px rgb(0, 100, 200);;
+  box-shadow: 0 0 10px var(--color-char);;
+}
+
+.sectionContainer {
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 10px;
+  max-width: 680px;
+  background-color: var(--color-main);
+  border-radius: 5px;
+  border: solid 1px var(--color-stroke);
+}
+
+input{
+  padding: 5px;
+  border-radius: 5px;
+  border: solid 1px var(--color-stroke);
+  background-color: var(--color-main-dark);
+  color: var(--color-text);
+  text-align: center;
+  transition: all 0.3s;
+  font-size: 18px;
+}
+
+input:hover{
+  box-shadow: 0 0 10px var(--color-char);
+}
+
+.textInput:focus{
+  border: solid 1px var(--color-char);
+}
+.buttonInput{
+  cursor: pointer;
+  background-color: var(--color-char);
+}
+
+.buttonInput:active{
+  border: solid 1px var(--color-char);
+}
+
+li{
+  margin: 5px 0
 }
