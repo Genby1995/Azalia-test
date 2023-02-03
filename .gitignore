@@ -1,0 +1,7 @@
+.env
+WS.code-workspace
+process.yml
+node_modules
+server/node_modules
+client/node_modules
+client/.next
