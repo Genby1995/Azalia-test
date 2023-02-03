@@ -4,10 +4,13 @@ import ApiError from "../exeptions/api_error.js";
 class DataService {
     async addMessage(text, author) {
         if (!text || !author) {
-            throw ApiError.BadRequest("Message must have text and autor");
+            throw ApiError.BadRequest("Сообщени должно иметь поля 'text' и 'autor'");
         }
         if (typeof text !== "string" || typeof author !== "string") {
-            throw ApiError.BadRequest("Text and autor in message must be strings");
+            throw ApiError.BadRequest("Текст и автор сообщения должны иметь тим 'String'.");
+        }
+        if (typeof text.length < 1 || typeof author.length < 1) {
+            throw ApiError.BadRequest("Поля текста и автора сообщения не должны быть пустыми.");
         }
         repository.addMessage({ text, author })
         const data = await repository.getData()
@@ -20,11 +23,11 @@ class DataService {
         let firstNumber
 
         if (!lastNumber || typeof lastNumber !== "number") {
-            throw ApiError.BadRequest("Request must have a number with number type");
+            throw ApiError.BadRequest("У запроса должно быть поле NUMBER с типом 'number'");
         }
         const data = await repository.getData()
         if (!data.numbers) {
-            throw ApiError.DBProblem("Error with database");
+            throw ApiError.DBProblem("Ошибка с базой данных");
         } else if (data.numbers.length < 1) {
             firstNumber = +number
         } else {
@@ -44,6 +47,11 @@ class DataService {
     async getData() {
         const data = await repository.getData()
         return data;
+    }
+
+    async clearData() {
+        await repository.clearData();
+        return;
     }
 }
 

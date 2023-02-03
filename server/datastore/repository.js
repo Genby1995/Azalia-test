@@ -55,6 +55,14 @@ class Repository {
         const objRecord = JSON.parse(jsonRecords)
         return objRecord;
     }
+
+    async clearData() {
+        await fs.promises.writeFile(
+            this.filename,
+            JSON.stringify({ "messages": [], "numbers": [] }, null, 2)
+        )
+        return;
+    }
 }
 
 export default new Repository('datastore/datastore.json')

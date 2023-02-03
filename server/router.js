@@ -6,5 +6,6 @@ const router = new Router()
 router.post("/messages", dataController.addMessage);
 router.post("/numbers", dataController.addNumber);
 router.get("/data", dataController.getData);
+router.delete("/data", dataController.clearData);
 
 export default router
