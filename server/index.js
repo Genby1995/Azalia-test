@@ -1,5 +1,5 @@
 import express from "express"
-import repository from "./datastore/repository.js";
+import errorMiddleware from "./middlewares/error_middleware.js";
 import router from "./router.js";
 
 
@@ -10,6 +10,7 @@ const app = express()
 //middleware
 app.use(express.json())
 app.use("/api", router);
+app.use(errorMiddleware);
 
 
 app.post("/", (req, res) => {
